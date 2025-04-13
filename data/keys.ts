@@ -1,4 +1,4 @@
-const keys = [
+const keyNotes = [
   'C',
   'C#',
   'D',
@@ -13,4 +13,4 @@ const keys = [
   'B',
 ];
 
-export default keys;
+export default keyNotes;

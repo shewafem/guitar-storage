@@ -1,5 +1,6 @@
 'use client';
 
+import {ModeToggle} from '@/components/ui';
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { Container } from './container';
@@ -17,14 +18,15 @@ interface Props {
 export const Header: React.FC<Props> = ({ className }) => {
   return (
     <header className={cn('border-b', className)}>
-      <Container className="flex items-center justify-between p-4">
+      <Container className="flex items-center justify-between">
         {/* Левая часть */}
         <Link href="/">
           <div className="flex items-center gap-4">
-            <Image src="/logo.png" alt="Logo" width={48} height={48} />
+            <Image src="/logo-black.png" alt="Logo" width={48} height={48} />
           </div>
         </Link>
         <div className="flex items-center gap-3">
+          <ModeToggle />
           <Button variant='outline'  className="flex items-center gap-3">
             <User size={16}/>
             Войти
