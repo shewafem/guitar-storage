@@ -27,7 +27,7 @@ export const Combobox: React.FC<Props> = ({ items, value, onValueChange, classNa
 						<Button variant="outline" className="w-full sm:w-[200px] justify-start font-mono">
 							{" "}
 							{/* Responsive width */}
-							{selectedItem ? <>{selectedItem}</> : <>Выберите суффикс</>}
+							{selectedItem ? <>{selectedItem}</> : <>Выберите тип</>}
 						</Button>
 					</PopoverTrigger>
 					<PopoverContent className="w-full sm:w-[200px] p-0 font-mono" align="start">
@@ -42,13 +42,13 @@ export const Combobox: React.FC<Props> = ({ items, value, onValueChange, classNa
 						<Button variant="outline" className="w-full sm:w-[200px] justify-start font-mono">
 							{" "}
 							{/* Responsive width */}
-							{selectedItem ? <>{selectedItem}</> : <>Выберите суффикс</>}
+							{selectedItem ? <>{selectedItem}</> : <>Выберите тип</>}
 						</Button>
 					</DrawerTrigger>
 					<DrawerContent>
 						<div className="p-4">
-							<DrawerTitle className="font-mono">Выберите суффикс</DrawerTitle>
-							<DrawerDescription className="font-mono">Выберите суффикс из списка ниже.</DrawerDescription>
+							<DrawerTitle className="font-mono">Выберите тип</DrawerTitle>
+							<DrawerDescription className="font-mono">Выберите тип из списка ниже.</DrawerDescription>
 							<div className="mt-4 border-t font-mono">
 								<ItemList items={items} setOpen={setOpen} onValueChange={onValueChange} />
 							</div>
@@ -71,10 +71,10 @@ function ItemList({
 }) {
 	return (
 		<Command>
-			<CommandInput placeholder="Search items..." />
+			<CommandInput placeholder="Найти тип..." />
 			<CommandList>
-				<CommandEmpty>No results found.</CommandEmpty>
-				<CommandGroup heading="Суффиксы">
+				<CommandEmpty>Таких аккордов нет...</CommandEmpty>
+				<CommandGroup heading="Типы">
 					{items.map((item) => (
 						<CommandItem
 							key={item}

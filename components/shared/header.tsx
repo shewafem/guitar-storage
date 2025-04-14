@@ -9,8 +9,6 @@ import Link from 'next/link';
 import { User } from 'lucide-react';
 
 interface Props {
-  hasSearch?: boolean;
-  hasCart?: boolean;
   className?: string;
 }
 
@@ -21,7 +19,12 @@ export const Header: React.FC<Props> = ({ className }) => {
         {/* Левая часть */}
         <Link href="/">
           <div className="flex items-center gap-4">
-            <Image src="/images/logo-dark.png" alt="Logo" width={48} height={48} />
+            <Image
+              src={"/images/logo-dark.png"}
+              alt="Logo"
+              width={48}
+              height={48}
+            />
           </div>
         </Link>
         <div className="flex items-center gap-3">
