@@ -1,31 +1,38 @@
 'use client'
-
 import { cn } from '@/lib/utils';
-import { useCategoryStore } from '@/components/store/category';
-import React from 'react'
+import React from 'react';
 
 interface Props {
   items: string[];
+  selectedKey: string | null;
+  onKeyChange: (key: string) => void;
   className?: string;
 }
 
-export const Categories: React.FC<Props> = ({ items, className }) => {
-  const categoryActiveId = useCategoryStore((state) => state.activeId);
+export const Categories: React.FC<Props> = ({ items, selectedKey, onKeyChange, className }) => {
+  const handleClick = React.useCallback(
+    (name: string) => () => onKeyChange(name),
+    [onKeyChange]
+  );
+
   return (
-    
-    <div className={cn('inline-flex gap-1 bg-background rounded-2xl', className)}>
-      <button className={cn('px-3 cursor-pointer font-mono rounded-md', categoryActiveId === null && 'bg-accent text-background')}>Все</button>
-      {items.map((name, index) => (
-        <a
+    <nav className={cn('flex flex-wrap justify-center gap-2 bg-background rounded-2xl p-2', className)} aria-label="Keys">
+      {items.map((name) => (
+        <button
+          key={name}
           className={cn(
-            'flex h-11 rounded-md px-5 text-foreground font-mono',
-            categoryActiveId === index && 'bg-accent text-background',
+            'px-4 py-2 text-sm font-mono rounded-md transition-colors duration-200',
+            selectedKey === name ? 'bg-accent text-background' : 'bg-gray-200 hover:bg-gray-300'
           )}
-          href={`/${name}`}
-          key={index}>
-          <button className='cursor-pointer'>{name}</button>
-        </a>
+          onClick={handleClick(name)}
+          aria-pressed="false"
+          aria-label={`Select category: ${name}`}
+        >
+          {name}
+        </button>
       ))}
-    </div>
+    </nav>
   );
 };
+
+export default React.memo(Categories);

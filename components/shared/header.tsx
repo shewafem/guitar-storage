@@ -6,7 +6,6 @@ import React from 'react';
 import { Container } from './container';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../ui';
 import { User } from 'lucide-react';
 
 interface Props {
@@ -22,15 +21,15 @@ export const Header: React.FC<Props> = ({ className }) => {
         {/* Левая часть */}
         <Link href="/">
           <div className="flex items-center gap-4">
-            <Image src="/logo-black.png" alt="Logo" width={48} height={48} />
+            <Image src="/images/logo-dark.png" alt="Logo" width={48} height={48} />
           </div>
         </Link>
         <div className="flex items-center gap-3">
           <ModeToggle />
-          <Button variant='outline'  className="flex items-center gap-3">
+          <Link href="/login" className="flex items-center gap-3">
             <User size={16}/>
             Войти
-          </Button>
+          </Link>
         </div>
       </Container>
     </header>

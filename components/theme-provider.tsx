@@ -1,3 +1,4 @@
+//Theme.Provider для темной темы из shadcn/ui
 "use client"
 
 import * as React from "react"

@@ -1,6 +1,5 @@
-import { Container, Title, TopBar, Footer} from "@/components/shared";
-import keyNotes from "@/data/keys";
-import suffixes from "@/data/suffixes";
+import ChordList from "@/components/ChordList";
+import { Container, Title, TopBar} from "@/components/shared";
 
 export default function Home() {
   return (
@@ -8,8 +7,8 @@ export default function Home() {
       <Container className="mt-5 p-4">
         <Title text="Аккорды" size="lg" className="font-extrabold font-mono" />
       </Container >
-      <TopBar keys={keyNotes} suffixes={suffixes}></TopBar>
-      <Footer/>
+      <TopBar />
+      <ChordList></ChordList>
     </>
   );
 }
