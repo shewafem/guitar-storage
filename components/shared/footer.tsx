@@ -1,16 +1,9 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import { Container } from "./"; 
-import Image from "next/image";
-
-
-const logoData = {
-	src: "/images/logo-dark.png",
-	alt: "guitar-logo",
-	title: "GuitarLogo",
-	href: "/",
-};
+import { Container } from "./";
+import ThemedImage from "../themed-image";
 
 const sectionsData = [
 	{
@@ -47,8 +40,6 @@ const socialLinksData = {
 
 export const SiteFooter: React.FC = () => {
 	const currentYear = new Date().getFullYear();
-
-	const logo = logoData;
 	const sections = sectionsData;
 	const socialLinks = socialLinksData;
 
@@ -59,14 +50,12 @@ export const SiteFooter: React.FC = () => {
 					<div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-20">
 						<div className="flex flex-col items-center text-center lg:col-span-4 lg:items-start lg:text-left">
 							<Link
-								href={logo.href || "/"}
+								href={"/"}
 								className="mb-4 inline-flex items-center gap-2 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary"
 							>
-								<Image width="64" height="64" src={logo.src} alt={logo.alt} className="" />
+								<ThemedImage />
 							</Link>
-							<p className="mb-6 max-w-xs text-sm text-muted-foreground">
-								Интерактивная платформа для гитаристов
-							</p>
+							<p className="mb-6 max-w-xs text-sm text-muted-foreground">Интерактивная платформа для гитаристов</p>
 							{Object.keys(socialLinks).length > 0 && (
 								<ul className="flex items-center gap-4" aria-label="Social media links">
 									{socialLinks.instagram && (
@@ -147,9 +136,7 @@ export const SiteFooter: React.FC = () => {
 						</div>
 					</div>
 					<div className="mt-16 flex flex-col-reverse items-center justify-between gap-6 border-t border-border pt-8 text-center md:mt-20 md:flex-row md:gap-8 md:text-left">
-						<p className="text-sm text-muted-foreground">
-							&copy; {currentYear} Все права защищены.
-						</p>
+						<p className="text-sm text-muted-foreground">&copy; {currentYear} Все права защищены.</p>
 						<ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-end">
 							<li>
 								<a

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Chord from "@tombatossals/react-chords/lib/Chord";
 import guitar from "@/data/guitar";
 import * as Tone from "tone";
